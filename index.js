@@ -32,6 +32,7 @@ input.addEventListener("input", () => {
             searchBox.innerHTML = "";
             loading.innerHTML = ""
             fetch(geoURL).then(response => response.json()).then(data => {
+                input.style.borderRadius = "25px 25px 0 0";
                 if (data.length === 0) {
                     searchBox.innerHTML += `
                     <li>${mapPin} <span class="span1">No results...</span></li>
@@ -48,6 +49,7 @@ input.addEventListener("input", () => {
     } else {
         loading.innerHTML = ""
         searchBox.innerHTML = "";
+        input.style.borderRadius = "50px";
     }
 
 });
@@ -58,6 +60,7 @@ input.addEventListener("keypress", e => {
         input.value = "";
         searchBox.innerHTML = "";
         loading.innerHTML = ""
+        input.style.borderRadius = "50px";
         if (searchTimeout) clearTimeout(searchTimeout);
         
     }
@@ -68,6 +71,7 @@ document.addEventListener("click", e => {
     if (e.target === svg || e.target === input) { }
     else {
         searchBox.innerHTML = "";
+        input.style.borderRadius = "50px";
     }
 });
 
