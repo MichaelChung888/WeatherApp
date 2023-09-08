@@ -1,0 +1,27 @@
+.condition {
+    position: relative;
+    height: 62.5vh;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-items: center;
+    margin-right: 1vw;
+}
+
+.condition-item-inner {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    background-color: var(--tertiary);
+    width: 18vw;
+    height: 9vh;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.condition-item-inner2 {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}

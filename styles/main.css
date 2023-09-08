@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+@import url(conditions.css);
+@import url(search.css);
+@import url(nextForecast.css);
+@import url(today.css);
+@import url(todayForecast.css);
+@import url(logo.css);
+@import url(map.css);
+@import url(current.css);
+@import url(condition.css);
+
+:root {
+    --primary: rgb(20, 20, 20);
+    --secondary: rgb(35, 35, 50);
+    --tertiary: rgb(40, 40, 40);
+    --text: white;
+    --text2: gray;
+    --border: rgb(100, 100, 100);
+    --shadow: rgb(0, 0, 0);
+    --test: #1b9cdd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--text);
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /*
+    background-image: url("waves.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    */
+}
+
+.grid {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--primary);
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    grid-template-rows: repeat(60, 1fr);
+    padding: 50px;
+
+}
+
+.section {
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 2px 2px var(--secondary);
+}
+
+.transition {
+    grid-column: 1 / span 30;
+    grid-row: 8 / span 53;
+    opacity: 1;
+    transition: opacity 0.1s;
+    display: grid;
+    grid-template-columns:  3fr 1fr;
+    column-gap: 50px;
+}
+
+.loading {
+    opacity: 0;
+}
+
+.header-left {
+    margin: 25px 0 25px 30px;
+    font-size: 1.3rem;
+    color: var(--text2);
+}
+
+.header-right {
+    margin: 25px 0 25px 10px;
+    font-size: 1.3rem;
+    color: var(--text2);
+}
+
+.upper-section {
+    display: grid;
+    grid-template-columns: 8fr 4fr;
+    column-gap: 50px;
+}
+
+
+
+/* WEATHER ICONS */
+.element {
+    height: 50px;
+    width: 50px;
+    margin: 20px;
+}
+
+.white {fill:#FFFFFF}
+.gray {fill:#E0E0E0}
+.yellow {fill:#FFEB3B}
+
+
+
+/* SCROLLBAR */
+.scrollbar::-webkit-scrollbar {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: black;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #363636;
+}
+
+
+
+/* LEFT SIDE */
+.leftside {
+    overflow-y: scroll;
+    direction: rtl;
+}
+
+.leftside::-webkit-scrollbar {
+    left: 25px;
+}
+
+.rotate {
+    direction: ltr;
+}
+
+/* RIGHT SIDE */
+.rightside {
+    overflow-y: scroll;
+}
+
+/* TODAY FORECAST SCROLL */
+.today-forecast::-webkit-scrollbar-track {
+    border-radius: none;
+    background-color: black;
+    border: none;
+    box-shadow: none;
+}

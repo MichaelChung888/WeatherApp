@@ -1,0 +1,32 @@
+.next-days-forecast {
+    position: relative;
+    border-radius: 30px;
+    padding: 0px 50px; 
+    margin-right: 1vw;
+}
+
+.next-days-forecast ul {
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.next-days-forecast ul li {
+    margin: auto;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    border-bottom: 2px solid var(--border);
+}
+
+.next-days-forecast ul li:last-child {
+    border-bottom: none;
+}
+
+.center {
+    margin: 20px auto;
+}

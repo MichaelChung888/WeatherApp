@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/main.css" rel="stylesheet">
+    <title>Weather App</title>
+    <script defer src="index.js"></script>
+    <script defer src="fetch.js"></script>
+    <script defer src="map.js"></script>
+    <script defer src="icons.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+</head>
+<body>
+    <div class="grid">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />
+            </svg>
+            <h1>WeatherApp</h1>
+        </div>
+
+          
+        <div class="search">
+            <input class="section" type="text" placeholder="Enter a location ...">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+            <div class="loading-icon"></div>
+            <ul class="search_box scrollbar"></ul>
+        </div>
+
+        <div class="current">
+            <svg width="25px" height="25px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="🔍-Product-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="ic_fluent_my_location_24_regular" fill="#fff" fill-rule="nonzero">
+                        <path d="M12,2 C12.3796958,2 12.693491,2.28215388 12.7431534,2.64822944 L12.75,2.75 L12.7490685,4.53770881 L12.7490685,4.53770881 C16.292814,4.88757432 19.1124257,7.70718602 19.4632195,11.2525316 L19.5,11.25 L21.25,11.25 C21.6642136,11.25 22,11.5857864 22,12 C22,12.3796958 21.7178461,12.693491 21.3517706,12.7431534 L21.25,12.75 L19.4616558,12.7490368 L19.4616558,12.7490368 C19.1124257,16.292814 16.292814,19.1124257 12.7474684,19.4632195 L12.75,19.5 L12.75,21.25 C12.75,21.6642136 12.4142136,22 12,22 C11.6203042,22 11.306509,21.7178461 11.2568466,21.3517706 L11.25,21.25 L11.2509632,19.4616558 L11.2509632,19.4616558 C7.70718602,19.1124257 4.88757432,16.292814 4.53678051,12.7474684 L4.5,12.75 L2.75,12.75 C2.33578644,12.75 2,12.4142136 2,12 C2,11.6203042 2.28215388,11.306509 2.64822944,11.2568466 L2.75,11.25 L4.53770881,11.2509315 L4.53770881,11.2509315 C4.88757432,7.70718602 7.70718602,4.88757432 11.2525316,4.53678051 L11.25,4.5 L11.25,2.75 C11.25,2.33578644 11.5857864,2 12,2 Z M12,6 C8.6862915,6 6,8.6862915 6,12 C6,15.3137085 8.6862915,18 12,18 C15.3137085,18 18,15.3137085 18,12 C18,8.6862915 15.3137085,6 12,6 Z M12,8 C14.209139,8 16,9.790861 16,12 C16,14.209139 14.209139,16 12,16 C9.790861,16 8,14.209139 8,12 C8,9.790861 9.790861,8 12,8 Z" id="🎨-Color">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+            <span>Use Current Location</span>
+        </div>
+
+        <div class="transition">
+    
+            <div class="leftside scrollbar">
+                <div class="rotate">
+            
+                    <div class="upper-section">
+                        <div>
+                            <h3 class="header-left" style="margin-top: 0;">Weather now</h3>
+                            <div class="section today">
+                                <h1 class="today-city"></h1>
+                                <p class="today-date"></p>
+                                <div class="bottom">
+                                    <div class="today-temperature"></div>
+                                    <p class="today-desc"></p>
+                                </div>
+                                <div class="element"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="header-left" style="margin-top: 0;">Map</h3>
+                            <div class="section map-section">
+                                <div id="map"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+    
+                    <h3 class="header-left">Today at</h3>
+                    <div class="today-forecast scrollbar">
+                        <ul></ul>
+                    </div>
+    
+                    <!--
+                    <h3 class="header-left">Today's Data</h3>
+                    <div class="section air-conditions">
+                        <div class="air-conditions-container">
+                            <div class="humidity"></div>
+                            <div class="wind-speed"></div>
+                            <div class="precipitation"></div>
+                            <div class="visibility"></div>
+                            <div class="clouds"></div>
+                            <div class="rain-vol"></div>
+                        </div>
+                    </div>
+                    -->
+
+                </div>
+    
+            </div>
+
+            <div class="rightside scrollbar">
+
+                <h3 class="header-right" style="margin-top: 0;">Weather conditions</h3>
+                <div class="section condition"></div>
+    
+                <h3 class="header-right">Next Day's Forecast</h3>
+                <div class="section next-days-forecast">
+                    <ul></ul>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

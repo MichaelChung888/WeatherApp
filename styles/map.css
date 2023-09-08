@@ -1,0 +1,15 @@
+.map-section {
+    height: 40vh;
+    border-radius: 30px;
+    padding: 5% 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map {
+    overflow: hidden;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+}

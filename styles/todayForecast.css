@@ -1,0 +1,38 @@
+.today-forecast {
+    position: relative;
+    overflow-x: scroll;
+    margin-left: 1vw;
+
+}
+
+.today-forecast ul {
+    width: 100%;
+    height: 38vh;
+    display: flex;
+}
+
+.today-forecast ul li {
+    list-style: none;
+}
+
+.today-forecast ul li .item {
+    border-radius: 20px;
+    margin-right: 25px;
+    height: 17vh;
+    width: 8vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: var(--secondary);
+}
+
+.today-forecast ul li div:last-child {
+    margin-top: 25px;   
+}
+
+.today-forecast-temperature {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
