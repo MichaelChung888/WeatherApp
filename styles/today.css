@@ -50,7 +50,7 @@
 .today .element {
     position: absolute;
     right: 50px;
-    bottom: 0%;
+    bottom: 30px;
     height: 250px;
     width: 250px;
     margin: 0px;
